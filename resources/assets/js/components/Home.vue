@@ -5,8 +5,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Home page</div>
 
-                    <div class="panel-body">
-                        I'm an example component!
+                    <div v-for="post in posts" :key="post.id" class="bs-callout bs-callout-danger">
+                        <h4>{{ post.title }}</h4>
+                        <p>{{ post.body }}</p>
                     </div>
                 </div>
             </div>
@@ -17,7 +18,14 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/api/posts').then(response => {
+                this.posts = response.data.data
+            })
+        },
+        data(){
+            return {
+                posts : []
+            }
         }
     }
 </script>
