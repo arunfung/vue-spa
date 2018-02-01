@@ -11,6 +11,6 @@
 |
 */
 
-Route::any('{all}', function () {
+Route::get('{all}', function () {
     return view('layouts.master');
-})->where(['all' => '.*']);
+})->where('all','.*');

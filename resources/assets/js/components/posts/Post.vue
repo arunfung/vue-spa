@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Home page</div>
-
-                    <div v-for="post in posts" :key="post.id" class="bs-callout bs-callout-danger">
+                    <div class="panel-heading">
                         <h4>{{ post.title }}</h4>
+                    </div>
+                    <div class="bs-callout bs-callout-danger panel-body">
                         <p>{{ post.body }}</p>
                     </div>
                 </div>
@@ -18,13 +18,13 @@
 <script>
     export default {
         mounted() {
-            axios.get('/api/posts').then(response => {
-                this.posts = response.data.data
+            axios.get('/api/posts/' + this.$route.params.id).then(response => {
+                this.post = response.data
             })
         },
-        data(){
+        data() {
             return {
-                posts : []
+                post: {}
             }
         }
     }
