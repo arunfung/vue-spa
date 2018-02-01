@@ -7,8 +7,8 @@
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <router-link to="/about" tag="li">
-                        <a>about</a>
+                    <router-link to="/register" tag="li">
+                        <a>register</a>
                     </router-link>
                 </ul>
             </div>
