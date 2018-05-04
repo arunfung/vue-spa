@@ -7,12 +7,18 @@
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <router-link to="/login" tag="li">
+                    <router-link v-if="!user.authenticated" to="/login" tag="li">
                         <a>login</a>
                     </router-link>
-                    <router-link to="/register" tag="li">
+                    <router-link v-if="!user.authenticated" to="/register" tag="li">
                         <a>register</a>
                     </router-link>
+                    <router-link v-if="user.authenticated" to="/profile" tag="li">
+                        <a>profile</a>
+                    </router-link>
+                    <li v-if="user.authenticated">
+                        <a>logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -20,7 +26,12 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
-
+        computed: {
+            ...mapState({
+                user: state => state.AuthUser
+            })
+        }
     }
 </script>
