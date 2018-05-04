@@ -7,6 +7,9 @@
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <router-link to="/login" tag="li">
+                        <a>login</a>
+                    </router-link>
                     <router-link to="/register" tag="li">
                         <a>register</a>
                     </router-link>
