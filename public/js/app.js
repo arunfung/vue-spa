@@ -52830,7 +52830,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52891,17 +52891,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         login: function login() {
             var formData = {
-                client_id: 2,
-                client_secret: 'xiEuJrhXXVbhdwf0ry8E5SDxJDdGF6GMpVBfYtOc',
-                grant_type: 'password',
-                scope: '',
-                username: this.email,
+                email: this.email,
                 password: this.password
             };
-            axios.post('/oauth/token', formData).then(function (response) {
-                __WEBPACK_IMPORTED_MODULE_0__helpers_jwt__["a" /* default */].setToken(response.data.access_token);
-                // console.log(response.data);
+            axios.post('/api/login', formData).then(function (response) {
+                console.log(response.data);
+                __WEBPACK_IMPORTED_MODULE_0__helpers_jwt__["a" /* default */].setToken(response.data.token);
                 // this.$router.push({name:'confirm'})
+            }).catch(function (error) {
+                console.log(error.response.data);
             });
         }
     }
